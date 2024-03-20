@@ -37,6 +37,7 @@ message ValidateResponse {
 
 service HashService {
 	rpc HashPassword (HashPasswordRequest) returns (HashPasswordResponse) {}
+	rpc ValidatePassword (ValidatePasswordRequest) returns (ValidatePasswordResponse) {}
 }
 
 message HashPasswordRequest {
@@ -45,4 +46,13 @@ message HashPasswordRequest {
 
 message HashPasswordResponse {
 	string hashedpassword = 1;
+}
+
+message ValidatePasswordRequest {
+	string password = 1;
+	string hashedpassword = 2;
+}
+
+message ValidatePasswordRequest {
+	bool isValid = 1;
 }
