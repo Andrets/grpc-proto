@@ -53,6 +53,6 @@ message ValidatePasswordRequest {
 	string hashedpassword = 2;
 }
 
-message ValidatePasswordRequest {
+message ValidatePasswordResponse {
 	bool isValid = 1;
 }
