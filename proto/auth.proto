@@ -6,6 +6,7 @@ service AuthService {
 	rpc Register (RegisterRequest) returns (RegisterResponse) {}
 	rpc Login (LoginRequest) returns (LoginResponse) {}
 	rpc Validate (ValidateRequest) returns (ValidateResponse) {}
+	rpc GetUserByJWT (GetUserByJWTRequest) returns (GetUserByJWTResponse) {}
 }
 
 message RegisterRequest {
@@ -33,4 +34,17 @@ message ValidateRequest {
 
 message ValidateResponse {
 	bool valid = 1;
+}
+
+message GetUserByJWTRequest {
+	string jwtToken = 1;
+}
+
+message GetUserByJWTResponse {
+	User user = 1;
+	
+	message User {
+		string name = 2;
+		string email = 3;
+	}
 }
